@@ -1,0 +1,23 @@
+@use '../styles/variables.scss' as *;
+
+.footer {
+  background-color: $cor-preto;       // fundo preto puro
+  color: $cor-texto-claro;           // texto claro
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border-top: 2px solid $cor-dourado-claro;
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+
+    &:first-child {
+      font-weight: bold;
+      color: $cor-dourado-claro;    // destaque para o copyright
+    }
+
+    &:last-child {
+      color: $cor-dourado-suave;    // destaque mais suave para contactos
+    }
+  }
+}

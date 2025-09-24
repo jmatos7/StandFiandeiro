@@ -1,0 +1,93 @@
+@use '../styles/variables.scss' as *;
+
+.car-detail__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  // Animação de fade do fundo
+  animation: fadeIn 0.3s ease;
+}
+
+.car-detail {
+  background: $cor-preto-escuro;
+  color: $cor-texto-claro;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 2px solid $cor-dourado-claro;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+
+  // Animação de entrada
+  transform: scale(0.9);
+  opacity: 0;
+  animation: zoomIn 0.3s ease forwards;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    color: $cor-dourado-claro;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin: 0.5rem 0;
+    color: $cor-dourado-suave;
+  }
+}
+
+// Botão de fechar
+.car-detail__close {
+  position: absolute;
+  top: -15px;   // sobe o botão para ficar fora da imagem
+  right: -15px;
+  background: $cor-preto;
+  border: 2px solid $cor-dourado-claro;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  color: $cor-dourado-claro;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+
+  &:hover {
+    background: $cor-dourado-claro;
+    color: $cor-preto;
+  }
+}
+
+
+// Keyframes para animações
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

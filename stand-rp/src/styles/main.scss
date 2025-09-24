@@ -1,0 +1,54 @@
+@use './variables.scss' as *;
+
+// Reset global e tipografia
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: $cor-preto-escuro; // fundo principal
+  color: $cor-texto-claro;
+  line-height: 1.6;
+}
+
+// Links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Layout principal
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+// Botões padrão
+button {
+  background-color: $cor-dourado-claro;
+  color: $cor-preto; // texto escuro sobre dourado
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $cor-dourado-suave;
+  }
+}
+
+// Cabeçalhos padrão
+h1, h2, h3, h4, h5, h6 {
+  color: $cor-dourado-claro;
+}

@@ -1,0 +1,30 @@
+@use '../styles/variables.scss' as *;
+
+.navbar {
+  background-color: $cor-preto;      // fundo preto puro
+  color: $cor-texto-claro;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid $cor-dourado-claro; // separador elegante
+
+  &__logo {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: $cor-dourado-claro;       // logo dourada
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__links a {
+    color: $cor-texto-claro;
+    margin-left: 2rem;
+    font-weight: bold;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $cor-dourado-suave;    // hover dourado suave
+    }
+  }
+}

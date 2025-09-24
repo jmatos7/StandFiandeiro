@@ -1,0 +1,45 @@
+@use '../styles/variables.scss' as *;
+
+.car-card {
+  background-color: $cor-fundo-secao; // fundo de seção elegante
+  color: $cor-texto-claro;
+  border: 2px solid $cor-dourado-claro; // borda dourada
+  border-radius: 10px;
+  margin: 10px;
+  padding: 1rem;
+  text-align: center;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    object-fit: fill;
+    height: 140px;
+  }
+
+  h3 {
+    margin: 0.5rem 0;
+    color: $cor-dourado-claro;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0.25rem 0;
+    color: $cor-dourado-suave;
+    font-size: 0.95rem;
+  }
+
+  &:hover {
+  transform: translateY(-8px);
+  border-color: $cor-dourado-suave;
+
+  // Glow dourado leve
+  box-shadow: 
+    0 0 8px rgba(212, 175, 55, 0.5),   // glow suave dourado
+    0 8px 20px rgba(0, 0, 0, 0.5);      // sombra original
+}
+
+}

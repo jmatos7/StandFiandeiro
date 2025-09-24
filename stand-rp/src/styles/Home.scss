@@ -1,0 +1,58 @@
+@use '../styles/variables.scss' as *;
+
+.home {
+
+    // Banner principal
+    &__banner {
+        background-color: $cor-preto; // fundo preto puro
+        color: $cor-dourado-claro; // texto dourado
+        text-align: center;
+        padding: 5rem 2rem;
+        border-bottom: 2px solid $cor-neutro;
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 1px 1px 3px $cor-neutro; // leve sombra para destaque
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: $cor-dourado-suave; // texto mais suave
+        }
+    }
+
+    // Seção de carros em destaque
+    &__featured {
+        background-color: $cor-preto-escuro; // fundo diferente do banner
+        padding: 3rem 2rem;
+        border-radius: 10px;
+        margin: 2rem auto;
+        max-width: 1200px;
+
+        .home__cars {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        h2 {
+            color: $cor-dourado-claro;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        &__cars {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+    }
+}
