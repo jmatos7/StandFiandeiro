@@ -25,7 +25,7 @@ const App: React.FC = () => {
 
             {/* Login de staff */}
             <Route
-              path="/staff-login"
+              path="/StaffLogin"
               element={<StaffLogin onLogin={() => setIsStaff(true)} />}
             />
 
