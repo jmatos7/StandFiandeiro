@@ -23,7 +23,7 @@ const About: React.FC = () => {
         </div>
 
         <div className="about__image">
-          <img src="/logo.png" alt="Stand Fiandeiro" />
+          <img src="/logo.png" alt="Stand Fiandeiro" loading="lazy"/>
         </div>
       </section>
 

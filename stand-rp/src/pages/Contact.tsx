@@ -15,7 +15,7 @@ const Contact: React.FC = () => {
             <div className="contact__list">
                 {contacts.map((person) => (
                     <div key={person.id} className="contact__card">
-                        <img src={person.image} alt={`Foto de ${person.name}`} className="contact__image" />
+                        <img src={person.image} alt={`Foto de ${person.name}`} className="contact__image" loading="lazy" />
                         <div className="contact__info">
                             <h2><User size={20} /> {person.name}</h2>
                             <p>
@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
             <section className="contact__location">
                 <h1>Localização</h1>
                 <div className="contact__map">
-                    <img src="/mapafiandeiro.png" alt="Mapa de Puerto Esperanza" />
+                    <img src="/mapafiandeiro.png" alt="Mapa de Puerto Esperanza" loading="lazy"/>
                     <p>📍 Estamos localizados em Puerto Esperanza, na zona norte da cidade.</p>
                 </div>
             </section>

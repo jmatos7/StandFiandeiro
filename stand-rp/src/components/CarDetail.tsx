@@ -20,7 +20,7 @@ const CarDetail: React.FC<CarDetailProps> = ({ car, onClose }) => {
         <button className="car-detail__close" onClick={onClose}>
           ✕
         </button>
-        <img src={car.img} alt={car.name} />
+        <img src={car.img} alt={car.name} loading="lazy"/>
         <h2>{car.name}</h2>
         <p><strong>Matricula: </strong> {car.plate}</p>
         <p><strong>Motor: Nivel:</strong> {car.engine}</p>
