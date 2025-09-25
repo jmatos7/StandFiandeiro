@@ -32,7 +32,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
   // Adicionar carro
   const handleAddCar = async (carData: Omit<CarFormData, "id">) => {
     try {
-      const res = await fetch(`${API_URL}/addCar`, {
+      const res = await fetch(`${API_URL}/carros`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(carData),
@@ -47,7 +47,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
   // Remover carro
   const handleRemoveCar = async (id: number) => {
     try {
-      await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      await fetch(`${API_URL}carros/${id}`, { method: "DELETE" });
       setCars(cars.filter(c => c.id !== id));
     } catch (err) {
       console.error("Erro ao remover carro:", err);
