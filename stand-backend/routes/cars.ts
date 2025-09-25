@@ -4,7 +4,7 @@ import { Car } from "../models/Car";
 const router = Router();
 
 // Listar todos os carros
-router.get("/", async (req, res) => {
+router.get("/carros", async (req, res) => {
   try {
     const cars = await Car.find();
     const carsWithId = cars.map(car => ({
