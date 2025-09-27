@@ -16,6 +16,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
   const [cars, setCars] = useState<CarFormData[]>([]);
   const [selectedCar, setSelectedCar] = useState<CarFormData | null>(null);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
+  const [showFilters, setShowFilters] = useState(false);
 
   // Carregar carros do backend
   useEffect(() => {
@@ -68,28 +69,38 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
       </section>
 
       {/* Filtros */}
-      <section className="catalog__filters">
-        <h3>Filtrar por preço</h3>
-        <div className="filter-controls">
-          <input
-            type="number"
-            value={priceRange[0]}
-            onChange={e => setPriceRange([Number(e.target.value), priceRange[1]])}
+      <button
+        className="toggle-filters-button"
+        onClick={() => setShowFilters(!showFilters)}
+      >
+        {showFilters ? "Esconder filtros" : "Mostrar filtros"}
+      </button>
+
+      {showFilters && (
+        <section className="catalog__filters">
+          <h3>Filtrar por preço</h3>
+          <div className="filter-controls">
+            <input
+              type="number"
+              value={priceRange[0]}
+              onChange={e => setPriceRange([Number(e.target.value), priceRange[1]])}
+            />
+            <input
+              type="number"
+              value={priceRange[1]}
+              onChange={e => setPriceRange([priceRange[0], Number(e.target.value)])}
+            />
+          </div>
+          <Slider
+            range
+            min={Math.min(...cars.map(c => c.price), 0)}
+            max={Math.max(...cars.map(c => c.price), 100000)}
+            value={priceRange}
+            onChange={val => setPriceRange(val as [number, number])}
           />
-          <input
-            type="number"
-            value={priceRange[1]}
-            onChange={e => setPriceRange([priceRange[0], Number(e.target.value)])}
-          />
-        </div>
-        <Slider
-          range
-          min={Math.min(...cars.map(c => c.price), 0)}
-          max={Math.max(...cars.map(c => c.price), 100000)}
-          value={priceRange}
-          onChange={val => setPriceRange(val as [number, number])}
-        />
-      </section>
+        </section>
+      )}
+
 
       {/* Adicionar carro (staff) */}
       {userRole === "staff" && (

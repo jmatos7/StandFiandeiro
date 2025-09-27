@@ -4,19 +4,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
 
 # Build
 dist/
 build/
-.cache/
-.next/
-out/
-
-# TypeScript
-*.tsbuildinfo
 
 # Logs
 logs/
@@ -33,13 +24,3 @@ logs/
 .vscode/
 .idea/
 .DS_Store
-*.swp
-
-# Coverage & testes
-coverage/
-*.lcov
-.jest/
-
-# Outros
-tmp/
-temp/

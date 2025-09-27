@@ -1,94 +1,135 @@
 @use './variables.scss' as *;
 
 .contact {
-    padding: 3rem 2rem;
+  padding: 3rem 2rem;
+  text-align: center;
+  color: $cor-texto-claro;
+
+  h1 {
+    color: $cor-dourado-claro;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  &__card {
+    background: $cor-preto-escuro;
+    border: 2px solid $cor-dourado-claro;
+    border-radius: 12px;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+
+    &:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    }
+  }
+
+  &__image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid $cor-dourado-claro;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    text-align: left;
+
+    h2 {
+      color: $cor-dourado-claro;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p {
+      color: $cor-dourado-suave;
+      margin: 0.3rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+
+  .contact__location {
+    margin-top: 3rem;
     text-align: center;
-    color: $cor-texto-claro;
+
+    .contact__map {
+      max-width: 600px;
+      margin: 0 auto;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid $cor-dourado-claro;
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+
+      img {
+        width: 100%;
+        display: block;
+      }
+
+      p {
+        margin-top: 0.5rem;
+        color: $cor-dourado-suave;
+      }
+    }
+  }
+}
+
+/* 📱 Responsividade */
+@media (max-width: 768px) {
+  .contact__card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+
+    .contact__image {
+      width: 100px;
+      height: 100px;
+    }
+
+    .contact__info {
+      text-align: center;
+
+      h2 {
+        justify-content: center;
+      }
+
+      p {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 2rem 1rem;
 
     h1 {
-        color: $cor-dourado-claro;
-        margin-bottom: 2rem;
-        font-size: 2.5rem;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+      font-size: 2rem;
     }
 
-    &__list {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 2rem;
+    .contact__card {
+      gap: 1rem;
+      max-width: 100%;
     }
-
-    &__card {
-        background: $cor-preto-escuro;
-        border: 2px solid $cor-dourado-claro;
-        border-radius: 12px;
-        padding: 1.5rem;
-        width: 100%;
-        max-width: 450px;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
-
-        &:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        }
-    }
-
-    &__image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid $cor-dourado-claro;
-        flex-shrink: 0;
-    }
-
-    &__info {
-        text-align: left;
-
-        h2 {
-            color: $cor-dourado-claro;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        p {
-            color: $cor-dourado-suave;
-            margin: 0.3rem 0;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-    }
-
-    .contact__location {
-        margin-top: 3rem;
-        text-align: center;
-
-        .contact__map {
-            max-width: 600px;
-            margin: 0 auto;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid $cor-dourado-claro;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
-
-            img {
-                width: 100%;
-                display: block;
-            }
-
-            p {
-                margin-top: 0.5rem;
-                color: $cor-dourado-suave;
-            }
-        }
-    }
+  }
 }

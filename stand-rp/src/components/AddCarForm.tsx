@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import type { CarFormData } from "../types/Car";
+import { API_URL } from "../config";
 
 interface AddCarFormProps {
   onAddCar: (car: Omit<CarFormData, "id">) => void; // ID será gerado no backend
@@ -38,7 +39,6 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
       img,
     });
 
-    // Limpar campos
     setName("");
     setPlate("");
     setEngine("");
@@ -65,7 +65,30 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
         <input type="checkbox" checked={turbo} onChange={(e) => setTurbo(e.target.checked)} />
       </label>
       <input type="number" placeholder="Preço (€)" value={price} onChange={(e) => setPrice(e.target.value)} />
-      <input type="text" placeholder="URL da Imagem" value={img} onChange={(e) => setImg(e.target.value)} />
+      <input
+        type="file"
+        accept="image/*"
+        onChange={(e) => {
+          const file = e.target.files?.[0];
+          if (file) {
+            const formData = new FormData();
+            formData.append("file", file);
+
+            fetch(`${API_URL}/upload`, {
+              method: "POST",
+              body: formData,
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                setImg(data.url); // URL devolvido pelo backend
+              })
+              .catch((err) => console.error("Erro no upload:", err));
+          }
+        }}
+      />
+
+
+      {img && <img src={img} alt="Preview" width="150" style={{ marginTop: "10px" }} />}
 
       <button type="submit">Adicionar Carro</button>
     </form>

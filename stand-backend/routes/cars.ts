@@ -1,5 +1,27 @@
-import { Router } from "express";
+import { Router,Request,Response } from "express";
 import { Car } from "../models/Car";
+import multer from "multer";
+import { v2 as cloudinary } from "cloudinary";
+import { CloudinaryStorage } from "multer-storage-cloudinary";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: async (req, file) => {
+    return {
+      folder: "standfiandeiro", // pasta na cloud
+      format: ["png","webp","jpg"],            // ou 'jpg', 'webp', etc
+      public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,
+    };
+  },
+});
+
+const upload = multer({ storage });
 
 const router = Router();
 
@@ -40,5 +62,15 @@ router.delete("/carros/:id", async (req, res) => {
     res.status(500).json({ error: "Erro ao remover carro" });
   }
 });
+
+router.post("/upload", upload.single("image"), (req: Request, res: Response) => {
+  if (!req.file) {
+    return res.status(400).json({ error: "Nenhum ficheiro enviado" });
+  }
+
+  // @ts-ignore
+  res.json({ url: req.file.path }); // caminho público da imagem
+});
+
 
 export default router;
