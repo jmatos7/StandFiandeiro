@@ -74,7 +74,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
             const formData = new FormData();
             formData.append("image", file);
 
-            fetch(`${API_URL}/upload`, {
+            fetch(`${API_URL}/img/upload`, {
               method: "POST",
               body: formData,
             })
