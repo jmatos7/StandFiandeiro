@@ -21,7 +21,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !plate || !engine || !transmisson || !suspension || !brakes || !armor || !price ) {
+    if (!name || !plate || !engine || !transmisson || !suspension || !brakes || !armor || !price || !img) {
       alert("Preenche todos os campos!");
       return;
     }
