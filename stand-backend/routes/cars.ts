@@ -63,13 +63,17 @@ router.delete("/carros/:id", async (req, res) => {
   }
 });
 
-router.post("/upload", upload.single("image"), (req: Request, res: Response) => {
-  if (!req.file) {
-    return res.status(400).json({ error: "Nenhum ficheiro enviado" });
-  }
+router.post("/upload", upload.single("image"), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: "Nenhum ficheiro enviado" });
+    }
 
-  // @ts-ignore
-  res.json({ url: req.file.path }); // caminho público da imagem
+    res.json({ url: req.file.path });
+  } catch (err) {
+    console.error("Erro no upload:", err);
+    res.status(500).json({ error: "Erro no upload" });
+  }
 });
 
 

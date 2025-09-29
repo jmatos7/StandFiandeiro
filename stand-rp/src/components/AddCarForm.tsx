@@ -21,7 +21,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name || !plate || !engine || !transmisson || !suspension || !brakes || !armor || !price || !img) {
+    if (!name || !plate || !engine || !transmisson || !suspension || !brakes || !armor || !price ) {
       alert("Preenche todos os campos!");
       return;
     }
@@ -72,7 +72,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
           const file = e.target.files?.[0];
           if (file) {
             const formData = new FormData();
-            formData.append("file", file);
+            formData.append("image", file);
 
             fetch(`${API_URL}/upload`, {
               method: "POST",
@@ -80,6 +80,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
             })
               .then((res) => res.json())
               .then((data) => {
+                console.log("Upload bem-sucedido:", data);
                 setImg(data.url); // URL devolvido pelo backend
               })
               .catch((err) => console.error("Erro no upload:", err));

@@ -22,17 +22,15 @@ const App: React.FC = () => {
             <Route path="/catalog" element={<Catalog userRole={isStaff ? "staff" : "guest"} />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-
             {/* Login de staff */}
             <Route
               path="/StaffLogin"
               element={<StaffLogin onLogin={() => setIsStaff(true)} />}
             />
-
             {/* Rota privada apenas para staff */}
             <Route
               path="/staff"
-              element={isStaff ? <Catalog userRole="staff" /> : <Navigate to="/staff-login" replace />}
+              element={isStaff ? <Catalog userRole="staff" /> : <Navigate to="/" replace />}
             />
           </Routes>
         </main>
