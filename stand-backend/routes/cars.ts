@@ -21,16 +21,24 @@ console.log("PORT:", process.env.PORT ? "✅" : "❌");
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: async (req, file) => {
-    return {
-      folder: "standfiandeiro", // pasta na cloud
-      format: ["png","webp","jpg"],            // ou 'jpg', 'webp', etc
-      public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,
-    };
-  },
+  params: async (req, file) => ({
+    folder: "standfiandeiro",
+    public_id: `${Date.now()}-${file.originalname.split(".")[0]}`,
+    resource_type: "image", // garante só imagens
+  }),
 });
 
-const upload = multer({ storage });
+const upload = multer({
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // limite de 5MB
+  fileFilter: (req, file, cb) => {
+    // aceita apenas imagens
+    if (!file.mimetype.startsWith("image/")) {
+      return cb(new Error("Apenas imagens são permitidas"));
+    }
+    cb(null, true);
+  },
+});
 
 const router = Router();
 
