@@ -33,8 +33,8 @@
 
   img {
     width: 100%;
-    height: auto; // mantém proporção
-    max-height: 250px; // evita que fique gigante
+    height: auto;
+    max-height: 250px;
     border-radius: 8px;
     margin-bottom: 1rem;
     object-fit: cover;
@@ -49,66 +49,62 @@
     margin: 0.5rem 0;
     color: $cor-dourado-suave;
   }
+
+  // Scroll customizado
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: rgba(212, 175, 55, 0.1);
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.6);
+    border-radius: 3px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.8);
+  }
+
+  @supports (scrollbar-color: auto) {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(212, 175, 55, 0.6) rgba(212, 175, 55, 0.1);
+  }
 }
 
 .car-detail__close {
-  position: absolute;
-  top: 5px;   // agora sempre visível
-  right: 5px;
-  background: $cor-preto;
-  border: 2px solid $cor-dourado-claro;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  color: $cor-dourado-claro;
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    position: absolute;
+    top: 20px;    // sempre visível no topo da tela
+    right: 20px;
+    background: $cor-preto;
+    border: 2px solid $cor-dourado-claro;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: $cor-dourado-claro;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+    z-index: 1010; // acima do modal
 
-  &:hover {
-    background: $cor-dourado-claro;
-    color: $cor-preto;
+    &:hover {
+      background: $cor-dourado-claro;
+      color: $cor-preto;
+    }
+
+    @media (max-width: 480px) {
+      top: 15px;
+      right: 15px;
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+    }
   }
 
-  @media (max-width: 480px) {
-    top: 5px;
-    right: 5px;
-    width: 30px;
-    height: 30px;
-    font-size: 1rem;
-  }
-}
-
-
-// Botão de fechar
-.car-detail__close {
-  position: absolute;
-  top: -15px;   // sobe o botão para ficar fora da imagem
-  right: -15px;
-  background: $cor-preto;
-  border: 2px solid $cor-dourado-claro;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  color: $cor-dourado-claro;
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
-
-  &:hover {
-    background: $cor-dourado-claro;
-    color: $cor-preto;
-  }
-}
-
-
-// Keyframes para animações
+// Keyframes
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
