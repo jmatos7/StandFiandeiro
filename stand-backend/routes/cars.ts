@@ -77,19 +77,19 @@ router.post("/upload", upload.single("image"), async (req, res) => {
   console.log("req.body:", req.body);
   console.log("req.file:", req.file);
 
-  if (!req.file) {
-    console.log("❌ Nenhum ficheiro recebido!");
-    return res.status(400).json({ error: "Nenhum ficheiro enviado" });
-  }
-
   try {
+    if (!req.file) {
+      console.log("❌ Nenhum ficheiro recebido!");
+      return res.status(400).json({ error: "Nenhum ficheiro enviado" });
+    }
+
     res.json({ url: req.file.path });
   } catch (err) {
-    console.error("Erro no upload:", err);
+    console.error("Erro no upload (detalhes):", err);
+    if (err instanceof Error) console.error(err.stack);
     res.status(500).json({ error: "Erro no upload" });
   }
 });
-
 
 
 export default router;
