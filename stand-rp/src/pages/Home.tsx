@@ -11,7 +11,7 @@ const Home: React.FC = () => {
 
   // Carregar carros do JSON
   useEffect(() => {
-    fetch(`${API_URL}/carros`)
+    fetch(`${API_URL}/cars/carros`)
       .then((res) => res.json())
       .then((data: CarFormData[]) => {
         setCars(data);

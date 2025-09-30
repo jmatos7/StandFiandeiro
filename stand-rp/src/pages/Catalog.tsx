@@ -33,7 +33,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
   // Adicionar carro
   const handleAddCar = async (carData: Omit<CarFormData, "id">) => {
     try {
-      const res = await fetch(`${API_URL}/carros`, {
+      const res = await fetch(`${API_URL}/cars/carros`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(carData),
