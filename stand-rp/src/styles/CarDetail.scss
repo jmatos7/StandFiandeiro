@@ -48,6 +48,16 @@
     margin: 0.5rem 0;
     color: $cor-dourado-suave;
   }
+
+   @media (max-width: 768px) {
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    max-width: 95%;
+    padding: 1rem;
+  }
 }
 
 // Botão de fechar

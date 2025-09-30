@@ -81,13 +81,10 @@ router.delete("/carros/:id", async (req, res) => {
 });
 
 router.post("/upload", upload.single("image"), async (req, res) => {
-  console.log("🚀 /api/cars/upload chamado");
-  console.log("req.body:", req.body);
-  console.log("req.file:", req.file);
 
   try {
     if (!req.file) {
-      console.log("❌ Nenhum ficheiro recebido!");
+      
       return res.status(400).json({ error: "Nenhum ficheiro enviado" });
     }
 
