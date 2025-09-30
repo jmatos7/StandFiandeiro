@@ -20,7 +20,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
 
   // Carregar carros do backend
   useEffect(() => {
-    fetch(`${API_URL}/carros`)
+    fetch(`${API_URL}/cars/carros`)
       .then(res => res.json())
       .then((data: CarFormData[]) => {
         setCars(data);
