@@ -65,7 +65,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
       {/* Banner */}
       <section className="catalog__banner">
         <h1>Catálogo de Carros</h1>
-        <p>Encontra o carro perfeito para ti</p>
+        <p>Encontra a viatura perfeito para ti</p>
       </section>
 
       {/* Filtros */}

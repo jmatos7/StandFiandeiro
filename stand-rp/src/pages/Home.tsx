@@ -27,12 +27,12 @@ const Home: React.FC = () => {
       {/* Banner */}
       <section className="home__banner">
         <h1>Bem-vindo ao Stand Fiandeiro</h1>
-        <p>Os melhores carros usados de Puerto Esperanza</p>
+        <p>As melhores viaturas de Puerto Esperanza, sempre perto de ti.</p>
       </section>
 
       {/* Carros em destaque */}
       <section className="home__featured">
-        <h2>Carros em destaque</h2>
+        <h2>Viaturas em destaque</h2>
         <div className="home__cars">
           {featuredCars.map((car) => (
             <div key={`car-${car.id}`} onClick={() => setSelectedCar(car)}>
