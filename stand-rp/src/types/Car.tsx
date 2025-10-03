@@ -10,4 +10,5 @@ export interface CarFormData {
   turbo: boolean;
   price: number;
   img: string;
+  sold: boolean;
 }

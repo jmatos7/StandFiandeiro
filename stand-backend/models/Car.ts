@@ -12,6 +12,7 @@ export interface ICar extends mongoose.Document {
   turbo: boolean;
   price: number;
   img: string;
+  sold: boolean;
 }
 
 const CarSchema = new mongoose.Schema<ICar>({
@@ -24,7 +25,8 @@ const CarSchema = new mongoose.Schema<ICar>({
   armor: { type: Number, required: true },
   turbo: { type: Boolean, required: true },
   price: { type: Number, required: true },
-  img: { type: String, required: true }
+  img: { type: String, required: true },
+  sold: { type: Boolean, default: false }
 });
 
 export const Car = mongoose.model<ICar>("Car", CarSchema);

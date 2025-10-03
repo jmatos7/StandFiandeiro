@@ -1,44 +1,27 @@
-import { Router,Request,Response } from "express";
+import { Router } from "express";
 import { Car } from "../models/Car";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
 
 cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
-
-console.log("Cloudinary config:");
-console.log("CLOUDINARY_CLOUD_NAME:", process.env.CLOUDINARY_CLOUD_NAME ? "✅" : "❌");
-console.log("CLOUDINARY_API_KEY:", process.env.CLOUDINARY_API_KEY ? "✅" : "❌");
-console.log("CLOUDINARY_API_SECRET:", process.env.CLOUDINARY_API_SECRET ? "✅" : "❌");
-
-console.log("Mongo URI:", process.env.MONGO_URI ? "✅" : "❌");
-console.log("PORT:", process.env.PORT ? "✅" : "❌");
-
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: async (req, file) => ({
-    folder: "standfiandeiro",
-    public_id: `${Date.now()}-${file.originalname.split(".")[0]}`,
-    resource_type: "image", // garante só imagens
-  }),
-});
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // limite de 5MB
-  fileFilter: (req, file, cb) => {
-    // aceita apenas imagens
-    if (!file.mimetype.startsWith("image/")) {
-      return cb(new Error("Apenas imagens são permitidas"));
-    }
-    cb(null, true);
+  params: async (req, file) => {
+    return {
+      folder: "standfiandeiro", // pasta na cloud
+      format: ["png","webp","jpg"],            // ou 'jpg', 'webp', etc
+      public_id: `${Date.now()}-${file.originalname.split('.')[0]}`,
+    };
   },
 });
+
+const upload = multer({ storage });
 
 const router = Router();
 
@@ -80,18 +63,30 @@ router.delete("/carros/:id", async (req, res) => {
   }
 });
 
-router.post("/upload", upload.single("image"), async (req, res) => {
+router.patch("/:id/sell", async (req, res) => {
+  try {
+    const car = await Car.findByIdAndUpdate(
+      req.params.id,
+      { sold: true },
+      { new: true }
+    );
+    if (!car) return res.status(404).json({ message: "Carro não encontrado" });
+    res.json(car);
+  } catch (err) {
+    res.status(500).json({ message: "Erro ao marcar carro como vendido" });
+  }
+});
 
+
+router.post("/upload", upload.single("image"), async (req, res) => {
   try {
     if (!req.file) {
-      
       return res.status(400).json({ error: "Nenhum ficheiro enviado" });
     }
 
     res.json({ url: req.file.path });
   } catch (err) {
-    console.error("Erro no upload (detalhes):", err);
-    if (err instanceof Error) console.error(err.stack);
+    console.error("Erro no upload:", err);
     res.status(500).json({ error: "Erro no upload" });
   }
 });

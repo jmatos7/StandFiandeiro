@@ -17,6 +17,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
   const [turbo, setTurbo] = useState(false);
   const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
+  const [sold, setSold] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -37,6 +38,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
       turbo,
       price: parseInt(price),
       img,
+      sold
     });
 
     setName("");
