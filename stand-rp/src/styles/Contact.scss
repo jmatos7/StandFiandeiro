@@ -21,7 +21,7 @@
   }
 
   &__card {
-    background: $cor-preto-escuro;
+    background: $cor-preto;
     border: 2px solid $cor-dourado-claro;
     border-radius: 12px;
     padding: 1.5rem;
@@ -60,7 +60,7 @@
     }
 
     p {
-      color: $cor-dourado-suave;
+      color: $cor-dourado-claro;
       margin: 0.3rem 0;
       display: flex;
       align-items: center;
@@ -87,7 +87,7 @@
 
       p {
         margin-top: 0.5rem;
-        color: $cor-dourado-suave;
+        color: $cor-texto-claro;
       }
     }
   }

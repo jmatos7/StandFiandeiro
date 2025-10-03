@@ -6,32 +6,29 @@ const About: React.FC = () => {
     <div className="about">
       <section className="about__banner">
         <h1>Sobre o Stand Fiandeiro</h1>
-        <p>Qualidade, confiança e os melhores carros usados de Puerto Esperanza</p>
+        <p>Qualidade, confiança e as melhores viaturas usadas de Puerto Esperanza</p>
       </section>
 
       <section className="about__content">
         <div className="about__text">
           <h2>Nossa História</h2>
           <p>
-            O Stand Fiandeiro começou como um pequeno negócio familiar no coração de Puerto Esperanza. 
-            Ao longo dos anos, conquistamos a confiança da comunidade graças à nossa transparência e dedicação.
+            Eu, Luis Fiandeiro desde sempre fui muito ligado a viaturas. O meu primeiro emprego em Puerto Esperanza foi como taxista, empresa que inclusive geri. Mais tarde tornei-me mecânico e abri a minha própria oficina, onde comecei a adquirir algumas viaturas para venda!
           </p>
           <p>
-            Hoje, oferecemos uma seleção exclusiva de carros usados de qualidade, garantindo sempre o melhor serviço 
-            e atendimento personalizado.
+            Posteriormente abri o Stand do Fiandeiro, negócio que comecou com apenas uma pessoa e que atualmente já tem uma equipa inteira e parceiros externos a tratar dos melhores negócios e oportunidades de Puerto Esperanza, sempre feitos a pensar em si!
           </p>
         </div>
 
         <div className="about__image">
-          <img src="/logo.png" alt="Stand Fiandeiro" loading="lazy"/>
+          <img src="/logo.png" alt="Stand Fiandeiro" loading="lazy" />
         </div>
       </section>
 
       <section className="about__mission">
         <h2>Nossa Missão</h2>
         <p>
-          Proporcionar aos habitantes de Puerto Esperanza carros usados de confiança, com preços justos e atendimento personalizado, 
-          tornando a experiência de compra agradável e segura.
+          A nossa missão é garantir viaturas de confiança para todas as gamas de preço aos cidadãos de Puerto Esperanza. Chegou à cidade e quer uma viatura barata? Temos o que precisa... Queres vender o teu carro usado e comprar uma viatura melhor? Também te conseguimos ajudar! Trabalhamos diariamente para garantir uma vasta gama de viaturas de todos os tipos e todos os preços. Sempre com o objetivo de ter uma relação de proximidade com o cliente!
         </p>
       </section>
     </div>

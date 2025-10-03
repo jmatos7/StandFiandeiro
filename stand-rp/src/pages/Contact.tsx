@@ -32,7 +32,7 @@ const Contact: React.FC = () => {
                 <h1>Localização</h1>
                 <div className="contact__map">
                     <img src="/mapafiandeiro.png" alt="Mapa de Puerto Esperanza" loading="lazy"/>
-                    <p>📍 Estamos localizados em Puerto Esperanza, na zona norte da cidade.</p>
+                    <p>📍 Estamos localizados em Sandy, Puerto Esperanza na Route 68, codigo postal 940.</p>
                 </div>
             </section>
         </div>

@@ -30,7 +30,6 @@ const CarDetail: React.FC<CarDetailProps> = ({ car, onClose }) => {
         <p><strong>Armadura: </strong>Nivel: {car.armor}</p>
         <p><strong>Turbo:</strong> {car.turbo ? "Sim" : "Não"}</p>
         <p><strong>Preço:</strong> {formatPrice(car.price)}</p>
-        <p>Lorem ipsum dolor sit amet, descrição completa do carro aqui.</p>
       </div>
     </div>
   );
