@@ -38,7 +38,7 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
       turbo,
       price: parseInt(price),
       img,
-      sold
+      sold: sold[0],
     });
 
     setName("");
