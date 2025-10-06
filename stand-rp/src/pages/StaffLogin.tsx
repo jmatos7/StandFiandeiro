@@ -13,7 +13,7 @@ const StaffLogin: React.FC<StaffLoginProps> = ({ onLogin }) => {
     e.preventDefault();
     if (password === "fiandeiro123") {
       onLogin();
-      navigate("/staff"); // redireciona para página de staff
+      navigate("/catalog"); // redireciona para página de staff
     } else {
       alert("Senha incorreta!");
     }

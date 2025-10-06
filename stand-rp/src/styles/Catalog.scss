@@ -26,6 +26,47 @@
         justify-content: center;
     }
 
+    .sold-car-button,
+    .remove-car-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 8px;
+        font-weight: bold;
+        padding: 0.5rem 1rem;
+        margin: 0.5rem auto;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: fit-content;
+        min-width: 100px;
+        text-align: center;
+    }
+
+    /* Botão de vender */
+    .sold-car-button {
+        background-color: $cor-dourado-suave;
+        border: 2px solid $cor-dourado-claro;
+        color: $cor-preto;
+
+        &:hover {
+            background-color: $cor-dourado-claro;
+            transform: scale(1.05);
+        }
+    }
+
+    /* Botão de remover */
+    .remove-car-button {
+        background-color: #a40000;
+        border: 2px solid darkred;
+        color: white;
+
+        &:hover {
+            background-color: darkred;
+            transform: scale(1.05);
+        }
+    }
+
     .catalog__add-car {
         background-color: $cor-preto-escuro;
         border: 2px solid $cor-dourado-claro;

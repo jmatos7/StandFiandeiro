@@ -82,7 +82,6 @@ const AddCarForm: React.FC<AddCarFormProps> = ({ onAddCar }) => {
             })
               .then((res) => res.json())
               .then((data) => {
-                console.log("Upload bem-sucedido:", data);
                 setImg(data.url); // URL devolvido pelo backend
               })
               .catch((err) => console.error("Erro no upload:", err));

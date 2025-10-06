@@ -27,11 +27,6 @@ const App: React.FC = () => {
               path="/StaffLogin"
               element={<StaffLogin onLogin={() => setIsStaff(true)} />}
             />
-            {/* Rota privada apenas para staff */}
-            <Route
-              path="/staff"
-              element={isStaff ? <Catalog userRole="staff" /> : <Navigate to="/" replace />}
-            />
           </Routes>
         </main>
         <Footer />

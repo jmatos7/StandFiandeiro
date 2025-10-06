@@ -63,12 +63,11 @@ router.delete("/carros/:id", async (req, res) => {
   }
 });
 
-router.patch("/:id/sell", async (req, res) => {
+router.patch("/carros/:id/sell", async (req, res) => {
   try {
     const car = await Car.findByIdAndUpdate(
       req.params.id,
-      { sold: true },
-      { new: true }
+      { sold: true }
     );
     if (!car) return res.status(404).json({ message: "Carro não encontrado" });
     res.json(car);

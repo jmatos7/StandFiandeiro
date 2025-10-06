@@ -55,6 +55,19 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
     }
   };
 
+  const HandleSoldCar = (id: number) => async () => {
+    try {
+      const res = await fetch(`${API_URL}/cars/carros/${id}/sell`, { method: "PATCH" });
+      if (res.ok) {
+        setCars(cars.map(c => c.id === id ? { ...c, sold: true } : c));
+      } else {
+        console.error("Erro ao marcar carro como vendido");
+      }
+    } catch (err) {
+      console.error("Erro ao marcar carro como vendido:", err);
+    }
+  };
+
   // Filtrar carros pelo preço
   const filteredCars = cars.filter(
     car => car.price >= priceRange[0] && car.price <= priceRange[1]
@@ -118,17 +131,26 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
               <div onClick={() => setSelectedCar(car)}>
                 <CarCard car={car} />
               </div>
+
               {userRole === "staff" && (
-                <button
-                  className="remove-car-button"
-                  onClick={() => handleRemoveCar(car.id)}
-                >
-                  Remover
-                </button>
+                <>
+                  <button
+                    className="remove-car-button"
+                    onClick={() => handleRemoveCar(car.id)}
+                  >
+                    Remover
+                  </button>
+
+                  <button
+                    className="sold-car-button"
+                    onClick={HandleSoldCar(car.id)}
+                  >
+                    Vendido
+                  </button>
+                </>
               )}
             </div>
           ))
-
         ) : (
           <p>Nenhum carro encontrado neste intervalo de preço.</p>
         )}
@@ -136,7 +158,7 @@ const Catalog: React.FC<CatalogProps> = ({ userRole }) => {
 
       {/* Detalhes do carro */}
       {selectedCar && <CarDetail car={selectedCar} onClose={() => setSelectedCar(null)} />}
-    </div>
+    </div >
   );
 };
 
