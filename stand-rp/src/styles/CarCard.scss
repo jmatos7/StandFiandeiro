@@ -1,6 +1,8 @@
 @use '../styles/variables.scss' as *;
 
 .car-card {
+  position: relative;
+  overflow: hidden;
   background-color: $cor-fundo-secao; // fundo de seção elegante
   color: $cor-texto-claro;
   border: 2px solid $cor-dourado-claro; // borda dourada
@@ -34,13 +36,35 @@
   }
 
   &:hover {
-  transform: translateY(-8px);
-  border-color: $cor-dourado-suave;
+    transform: translateY(-8px);
+    border-color: $cor-dourado-suave;
 
-  // Glow dourado leve
-  box-shadow: 
-    0 0 8px rgba(212, 175, 55, 0.5),   // glow suave dourado
-    0 8px 20px rgba(0, 0, 0, 0.5);      // sombra original
-}
+    // Glow dourado leve
+    box-shadow:
+      0 0 8px rgba(212, 175, 55, 0.5), // glow suave dourado
+      0 8px 20px rgba(0, 0, 0, 0.5); // sombra original
+  }
 
+  .sold-label {
+    position: absolute;
+    top: 20px;
+    left: -65px;
+    width: 200px;
+    background-color: rgba(212, 175, 55, 0.208);
+    color: $cor-dourado-claro;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    transform: rotate(-45deg);
+    padding: 5px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    letter-spacing: 1px;
+    z-index: 2;
+
+
+    &.sold {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
 }

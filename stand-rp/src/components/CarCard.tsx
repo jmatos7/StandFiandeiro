@@ -21,7 +21,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onClick }) => {
     <img src={car.img} alt={car.name} loading="lazy" />
     <h3>{car.name}</h3>
     <p>{formatPrice(car.price)}</p>
-    {car.sold && <span className="sold-label">Vendido</span>}
+    {car.sold && <div className="sold-label">Vendido</div>}
   </div>
 );
 
