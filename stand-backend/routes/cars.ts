@@ -21,7 +21,6 @@ const storage = new CloudinaryStorage({
     resource_type: "image", // garante só imagens
   }),
 
-
 });
 
 const upload = multer({

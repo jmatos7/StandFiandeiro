@@ -16,6 +16,5 @@ mongoose.connect(process.env.MONGO_URI || "")
 
 app.use("/api/cars", carsRoutes);
 
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor a correr na porta ${PORT}`));
