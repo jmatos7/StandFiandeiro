@@ -3,9 +3,9 @@ import { Phone, User, Briefcase } from "lucide-react";
 import "../styles/Contact.scss";
 
 const contacts = [
-    { id: 1, name: "Luis Fiandeiro", number: "+351 912 345 678", role: "Dono", image: "/luisfiandeiro.png" },
-    { id: 2, name: "Candido", number: "+351 934 567 890", role: "Gerente", image: "/Candido.png" },
-    { id: 3, name: "Abilio Matos", number: "+351 965 432 198", role: "Desenvolvedor", image: "/abilio.png" },
+    { id: 1, name: "Luis Fiandeiro", number: "+351 915 919 339", role: "Dono", image: "/luisfiandeiro.png" },
+    { id: 2, name: "Candido", number: "+351 967 816 932", role: "Gerente", image: "/Candido.png" },
+    { id: 3, name: "Abilio Matos", number: "+351 938 797 352", role: "Desenvolvedor", image: "/abilio.png" },
 ];
     
 const Contact: React.FC = () => {
